@@ -13,6 +13,13 @@
 <body>
   <h1>Hello!</h1>
   <script>
+    var listener2 = function(event, data) { console.log(event, data); }
+    // Listen for all events
+    branch.addListener('willShowBanner', listener2);
+    
+    var listener = function(event, data) { console.log(event, data); }
+    // Listen for all events
+    branch.addListener(listener);
     branch.banner({
       icon: 'http://icons.iconarchive.com/icons/wineass/ios7-redesign/512/Appstore-icon.png',
       title: 'Branch Demo App',
