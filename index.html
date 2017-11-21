@@ -84,7 +84,13 @@
   <h1>Hello!</h1>
   <h1>Hello!</h1>
   <script>
-    var listener2 = function(event, data) { console.log(event, data); }
+    var listener2 = function(event, data) { \
+      console.log(event, data);
+      if(data["banner_id"] == "461658538695908388"){
+        console.log("Same banner");
+      }
+
+    }
     // Listen for all events
     branch.addListener('willShowJourney', listener2);
 
