@@ -89,7 +89,7 @@
 
       if(data["banner_id"] == "461658538695908388"){
         console.log("Same banner true!");
-        var nav = document.getElementByClassName("fixedNav");
+        var nav = document.getElementsByClassName("fixedNav")[];
         var tMargin = window.getComputedStyle(nav).marginTop;
         console.log(tMargin);
 
@@ -100,7 +100,7 @@
             var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
             console.log(scrollTop);
             if( scrollTop <= topMargin) {
-              document.getElementByClassName("fixedNav").style.marginTop = topMargin - scrollTop;
+              document.getElementsByClassName("fixedNav")[].style.marginTop = topMargin - scrollTop;
             }
 
           }
