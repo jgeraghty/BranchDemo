@@ -88,19 +88,17 @@
       console.log(event, data);
 
       if(data["banner_id"] == "461658538695908388"){
-        // console.log("Same banner true!");
-        var nav = document.getElementsByClassName("fixedNav")[0];
+        //get element by class name or id
+        var nav = document.getElementsByClassName("branch-journeys-top")[0].parentNode;
         var tMargin = window.getComputedStyle(nav).marginTop;
-        console.log(tMargin);
+        // console.log(tMargin);
         var initialMargin = parseInt(tMargin, 10);
-        console.log(initialMargin);
+        // console.log(initialMargin);
 
         if( initialMargin > 0 ){
           window.onscroll = function (e){
-            // var topMargin = window.getComputedStyle(nav).marginTop;
-            // console.log("user scrolled");
             var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
-            console.log(scrollTop);
+            // console.log(scrollTop);
             // var tmp = parseInt(topMargin, 10);
             if( scrollTop <= initialMargin) {
               document.getElementsByClassName("fixedNav")[0].style.marginTop = (initialMargin - scrollTop)+"px";
