@@ -1,5 +1,7 @@
 <html>
 <head>
+  <meta name=viewport content="width=device-width, initial-scale=1, user-scalable=yes">
+
   <script type="text/javascript">
 
 	(function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent".split(" "), 0);
@@ -15,6 +17,8 @@
     top: 0;
     right: 0;
     bottom: 0;
+    height:50px;
+    background: blue;
   }
 </style>
 </head>
@@ -86,10 +90,7 @@
   <script>
     var listener2 = function(event, data) {
       console.log(event, data);
-      //insert the banner id of the inline banner version
-      console.log(data["journey_link_data"]["data"]["inline"]);
       if(data["journey_link_data"]["data"]["inline"] == "true"){
-      // if(data["banner_id"] == "461658538695908388"){
         var nav = document.getElementsByClassName("branch-journeys-top")[0].parentNode;
         var tMargin = window.getComputedStyle(nav).marginTop;
         var initialMargin = parseInt(tMargin, 10);
