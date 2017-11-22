@@ -86,30 +86,25 @@
   <script>
     var listener2 = function(event, data) {
       console.log(event, data);
-
-      if(data["banner_id"] == "461658538695908388"){
-        //get element by class name or id
+      //insert the banner id of the inline banner version
+      console.log(data["journey_link_data"]["data"]["inline"]);
+      if(data["journey_link_data"]["data"]["inline"] == "true"){
+      // if(data["banner_id"] == "461658538695908388"){
         var nav = document.getElementsByClassName("branch-journeys-top")[0].parentNode;
         var tMargin = window.getComputedStyle(nav).marginTop;
-        // console.log(tMargin);
         var initialMargin = parseInt(tMargin, 10);
-        // console.log(initialMargin);
 
         if( initialMargin > 0 ){
           window.onscroll = function (e){
             var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
-            // console.log(scrollTop);
-            // var tmp = parseInt(topMargin, 10);
             if( scrollTop <= initialMargin) {
               document.getElementsByClassName("fixedNav")[0].style.marginTop = (initialMargin - scrollTop)+"px";
             }
-
           }
         }
       }
-
     }
-    // Listen for all events
+    // Listen for journey events
     branch.addListener('didShowJourney', listener2);
 
     var listener = function(event, data) { console.log(event, data); }
