@@ -92,18 +92,18 @@
         var nav = document.getElementsByClassName("fixedNav")[0];
         var tMargin = window.getComputedStyle(nav).marginTop;
         console.log(tMargin);
-        var tmp = parseInt(tMargin, 10);
-        console.log(tmp);
+        var initialMargin = parseInt(tMargin, 10);
+        console.log(initialMargin);
 
         if( tmp > 0 ){
           window.onscroll = function (e){
-            var topMargin = window.getComputedStyle(nav).marginTop;
-            console.log("user scrolled");
+            // var topMargin = window.getComputedStyle(nav).marginTop;
+            // console.log("user scrolled");
             var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
             console.log(scrollTop);
-            var tmp = parseInt(topMargin, 10);
-            if( scrollTop <= tmp) {
-              document.getElementsByClassName("fixedNav")[0].style.marginTop = (tmp - scrollTop)+"px";
+            // var tmp = parseInt(topMargin, 10);
+            if( scrollTop <= initialMargin) {
+              document.getElementsByClassName("fixedNav")[0].style.marginTop = (initialMargin - scrollTop)+"px";
             }
 
           }
