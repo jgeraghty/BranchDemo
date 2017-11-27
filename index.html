@@ -99,7 +99,7 @@
             var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
             var setZero = true;
             if( scrollTop <= initialMargin) {
-              nav.style.marginTop = (initialMargin - scrollTop)+"px";
+              nav.style.marginTop = (initialMargin - scrollTop - 2)+"px";
               setZero = true;
             } else if(setZero){
               nav.style.marginTop = "0px";
