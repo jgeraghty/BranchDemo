@@ -106,7 +106,7 @@
         precontent.style.marginTop = (initialMargin2 + initialMargin)+"px";
 
         if( initialMargin > 0 ){
-          window.onscroll = function (e){
+          window.mousewheel = function (e){
             var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
             var setZero = true;
             if( scrollTop <= initialMargin) {
