@@ -102,6 +102,7 @@
         var precontent = document.getElementsById("pre-content-container");
         var tMargin2 = window.getComputedStyle(precontent).marginTop;
         var initialMargin2 = parseInt(tMargin2, 10);
+        console.log(initialMargin + " 2: " + initialMargin2);
         precontent.style.marginTop = (initialMargin2 + initialMargin)+"px";
 
         if( initialMargin > 0 ){
