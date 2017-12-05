@@ -106,16 +106,54 @@
         precontent.style.marginTop = (initialMargin2 + initialMargin)+"px";
 
         if( initialMargin > 0 ){
-          window.onscroll = function (e){
-            var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
-            var setZero = true;
-            if( scrollTop <= initialMargin) {
-              nav.style.marginTop = (initialMargin - scrollTop - 2)+"px";
-              setZero = true;
-            } else if(setZero){
-              nav.style.marginTop = "0px";
-              setZero = false;
-            }
+          // window.onscroll = function (e){
+          //   var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
+          //   var setZero = true;
+          //   if( scrollTop <= initialMargin) {
+          //     nav.style.marginTop = (initialMargin - scrollTop - 2)+"px";
+          //     setZero = true;
+          //   } else if(setZero){
+          //     nav.style.marginTop = "0px";
+          //     setZero = false;
+          //   }
+          // }
+          var scroll = function () {
+              // do the onscroll stuff you want here
+
+                var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
+                var setZero = true;
+                if( scrollTop <= initialMargin) {
+                  nav.style.marginTop = (initialMargin - scrollTop - 2)+"px";
+                  setZero = true;
+                } else if(setZero){
+                  nav.style.marginTop = "0px";
+                  setZero = false;
+                }
+          };
+          var raf = window.requestAnimationFrame ||
+              window.webkitRequestAnimationFrame ||
+              window.mozRequestAnimationFrame ||
+              window.msRequestAnimationFrame ||
+              window.oRequestAnimationFrame;
+          var $window = $(window);
+          var lastScrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop;
+
+          if (raf) {
+              loop();
+          }
+
+          function loop() {
+              var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop;
+              if (lastScrollTop === scrollTop) {
+                  raf(loop);
+                  return;
+              } else {
+                  lastScrollTop = scrollTop;
+
+                  // fire scroll function if scrolls vertically
+                  scroll();
+                  raf(loop);
+              }
           }
         }
       }
