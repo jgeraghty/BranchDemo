@@ -93,7 +93,6 @@
   <h1>Hello!</h1>
   <script>
     var listener2 = function(event, data) {
-      branchJourneyIsOpen = true;
       if(data["journey_link_data"]["data"]["inline"] == "true"){
         var nav = document.getElementsByClassName("branch-journeys-top")[0].parentNode;
         var tMargin = window.getComputedStyle(nav).marginTop;
