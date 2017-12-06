@@ -92,7 +92,6 @@
   <h1>Hello!</h1>
   <h1>Hello!</h1>
   <script>
-    var branchJourneyIsOpen = false;
     var listener2 = function(event, data) {
       branchJourneyIsOpen = true;
       if(data["journey_link_data"]["data"]["inline"] == "true"){
@@ -108,18 +107,16 @@
 
         if( initialMargin > 0 ){
           window.onscroll = function (e){
-            // if( branchJourneyIsOpen ){
-              var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
-              var setZero = true;
-              if( scrollTop <= initialMargin) {
-                nav.style.marginTop = (initialMargin - scrollTop - 2)+"px";
-                setZero = true;
-              } else if(setZero){
-                nav.style.marginTop = "0px";
-                setZero = false;
-              }
+            var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
+            var setZero = true;
+            if( scrollTop <= initialMargin) {
+              nav.style.marginTop = (initialMargin - scrollTop - 2)+"px";
+              setZero = true;
+            } else if(setZero){
+              nav.style.marginTop = "0px";
+              setZero = false;
             }
-          // }
+          }
         }
       }
     }
@@ -131,7 +128,6 @@
       if(data["journey_link_data"]["data"]["inline"] == "true"){
         var precontent = document.getElementById("pre-content-container");
         precontent.style.marginTop = "60px";
-        branchJourneyIsOpen = false;
         window.onscroll = function (e){}
       }
     }
