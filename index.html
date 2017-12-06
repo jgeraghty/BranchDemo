@@ -92,6 +92,7 @@
   <h1>Hello!</h1>
   <h1>Hello!</h1>
   <script>
+    var open = true;
     var listener2 = function(event, data) {
       if(data["journey_link_data"]["data"]["inline"] == "true"){
         var nav = document.getElementsByClassName("branch-journeys-top")[0].parentNode;
@@ -105,10 +106,8 @@
         console.log(initialMargin + " 2: " + initialMargin2);
         precontent.style.marginTop = (initialMargin2 + initialMargin)+"px";
 
-        if( initialMargin > 0 ){
+        if( initialMargin > 0 && open ){
           window.onscroll = function (e){
-          var tMargin = window.getComputedStyle(nav).marginTop;
-          var initialMargin = parseInt(tMargin, 10);
             var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
             var setZero = true;
             if( scrollTop <= initialMargin) {
@@ -130,7 +129,7 @@
       if(data["journey_link_data"]["data"]["inline"] == "true"){
         var precontent = document.getElementById("pre-content-container");
         precontent.style.marginTop = "60px";
-        branch.removeListener(listener2);
+        open = false;
       }
     }
     branch.addListener('didCloseJourney', closeListener);
