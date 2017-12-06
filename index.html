@@ -128,6 +128,7 @@
       if(data["journey_link_data"]["data"]["inline"] == "true"){
         var precontent = document.getElementById("pre-content-container");
         precontent.style.marginTop = "60px";
+        branch.removeListener('didShowJourney', listener2);
       }
     }
     branch.addListener('didCloseJourney', closeListener);
