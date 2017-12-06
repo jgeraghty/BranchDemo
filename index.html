@@ -103,19 +103,20 @@
         var precontent = document.getElementById("pre-content-container");
         var tMargin2 = window.getComputedStyle(precontent).marginTop;
         var initialMargin2 = parseInt(tMargin2, 10);
-        console.log(initialMargin + " 2: " + initialMargin2);
         precontent.style.marginTop = (initialMargin2 + initialMargin)+"px";
 
-        if( initialMargin > 0 && open ){
+        if( initialMargin > 0 ){
           window.onscroll = function (e){
-            var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
-            var setZero = true;
-            if( scrollTop <= initialMargin) {
-              nav.style.marginTop = (initialMargin - scrollTop - 2)+"px";
-              setZero = true;
-            } else if(setZero){
-              nav.style.marginTop = "0px";
-              setZero = false;
+            if( open ){
+              var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
+              var setZero = true;
+              if( scrollTop <= initialMargin) {
+                nav.style.marginTop = (initialMargin - scrollTop - 2)+"px";
+                setZero = true;
+              } else if(setZero){
+                nav.style.marginTop = "0px";
+                setZero = false;
+              }
             }
           }
         }
