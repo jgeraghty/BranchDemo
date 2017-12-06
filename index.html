@@ -108,7 +108,7 @@
 
         if( initialMargin > 0 ){
           window.onscroll = function (e){
-            if( branchJourneyIsOpen ){
+            // if( branchJourneyIsOpen ){
               var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
               var setZero = true;
               if( scrollTop <= initialMargin) {
@@ -119,7 +119,7 @@
                 setZero = false;
               }
             }
-          }
+          // }
         }
       }
     }
@@ -132,6 +132,7 @@
         var precontent = document.getElementById("pre-content-container");
         precontent.style.marginTop = "60px";
         branchJourneyIsOpen = false;
+        window.onscroll = function (e){}
       }
     }
     branch.addListener('didCloseJourney', closeListener);
