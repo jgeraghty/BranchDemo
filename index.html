@@ -124,6 +124,15 @@
     branch.addListener('didShowJourney', listener2);
 
 
+      var closeListener = function(event, data) {
+          //add in margin to precontent container
+          var precontent = document.getElementById("pre-content-container");
+          precontent.style.marginTop = "0px";
+      }
+      // Listen for journey events
+      branch.addListener('didCloseJourney', closeListener);
+
+
       var listener3 = function(event, data) {
         if(data["journey_link_data"]["data"]["inline"] == "true"){
           var nav = document.getElementsByClassName("branch-journeys-top")[0].parentNode;
