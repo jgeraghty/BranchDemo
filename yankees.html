@@ -10,14 +10,15 @@
     	// callback to handle err or data
       console.log(data.referring_link);
         if(!data.referring_link){
+          console.log("Should change title");
         // .setBranchViewData overrides banner text & image on page load (SBVD can override Branch metatags, including $canonical_url)
             branch.setBranchViewData({
                 data:{
-                  '$journeys_title':'New York Yankees',
-                  '$journeys_description':'Description reset on load via JS'
+                  '$journeys_title':'New York Yankees'
                 }
             });
         }
+        console.log("outside the title change");
 
 	});
 </script>
