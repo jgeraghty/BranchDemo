@@ -1,6 +1,7 @@
 <html>
 <head>
   <meta name=viewport content="width=device-width, initial-scale=1, user-scalable=yes">
+  <meta name="page_name" content="Chicago Cubs" />
 
   <script type="text/javascript">
 
@@ -10,10 +11,12 @@
     	// callback to handle err or data
       console.log(data.referring_link);
         if(!data.referring_link){
+          var element = document.querySelector('meta[name="page_name"]');
+          var content = element && element.getAttribute("content");
         // .setBranchViewData overrides banner text & image on page load (SBVD can override Branch metatags, including $canonical_url)
             branch.setBranchViewData({
                 data:{
-                  '$journeys_title':'Chicago Cubs',
+                  '$journeys_title':content,
                   '$journeys_description':'Go Cubs!'
                 }
             });
