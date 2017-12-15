@@ -16,6 +16,7 @@
     	// callback to handle err or data
       console.log(data);
       if(!data.referring_link){
+        //getting meta tags
         var page_name = document.querySelector('meta[name="page_name"]');
         var content = page_name && page_name.getAttribute("content");
 
@@ -24,22 +25,24 @@
 
         console.log(teamData[content]['name']);
 
+        //creating listener for on journey load
         var listener = function(event, data) {
+          var branchFrame = document.getElementById('branch-banner-iframe');
+          var win = branchFrame.contentWindow;
+          var doc = branchFrame.contentDocument? branchFrame.contentDocument: branchFrame.contentWindow.document;
 
-        var branchFrame = document.getElementById('branch-banner-iframe');
-        var win = branchFrame.contentWindow;
-        var doc = branchFrame.contentDocument? branchFrame.contentDocument: branchFrame.contentWindow.document;
+          var description = doc.getElementsByClassName('branch-banner-description')[0];
+          var button = doc.getElementsByClassName('branch-banner-button')[0];
+          button.style.color = "#000000";
 
-        var description = doc.getElementsByClassName('branch-banner-description')[0];
-        var button = doc.getElementsByClassName('branch-banner-button')[0];
-        button.style.color = "#000000";
+          var desc = description.innerHTML;
+          console.log(desc);
 
-        var desc = description.innerHTML;
-        console.log(desc);
+          //replacing the inner description
+          description.innerHTML = desc.replace("xxxx", teamData[content]['shortName']).replace("xxyy", teamData[content]['stadiumName']);
+        }
 
-        description.innerHTML = desc.replace("xxxx", teamData[content]['shortName']).replace("xxyy", teamData[content]['stadiumName']);
-        // description.innerHTML = desc.replace("xxyy", teamData[content]['stadiumName']);
-      }
+        //set branch journey data beforeload - limited to title, description, imageurl
         branch.setBranchViewData({
             data:{
               '$journeys_title': teamData[content]['name'],
