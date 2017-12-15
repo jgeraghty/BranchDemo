@@ -14,7 +14,7 @@
   }
 	branch.init('key_live_amAKfW7aDLFp8CsA7oY7geoewxnTBPGi', function(err, data) {
     	// callback to handle err or data
-      console.log(data.referring_link);
+      console.log(data);
       if(!data.referring_link){
         var page_name = document.querySelector('meta[name="page_name"]');
         var content = page_name && page_name.getAttribute("content");
