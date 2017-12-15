@@ -2,34 +2,47 @@
 <head>
   <meta name=viewport content="width=device-width, initial-scale=1, user-scalable=yes">
   <meta name="page_name" content="New York Yankees" />
+  <meta name="fileCode" content="nyy" />
 
   <script type="text/javascript">
 
 	(function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent".split(" "), 0);
-
+  var teamData = {
+    nyy: { name: 'New York Yankees', shortName: 'Yankees', stadiumName: 'Yankee Stadium'},
+    chc: { name: 'Chicago Cubs', shortName: 'Cubs', stadiumName: 'Wrigley Field'},
+    nym: { name: 'New York Mets', shortName: 'Mets', stadiumName: 'Citi Field'}
+  }
 	branch.init('key_live_amAKfW7aDLFp8CsA7oY7geoewxnTBPGi', function(err, data) {
     	// callback to handle err or data
       console.log(data.referring_link);
       if(!data.referring_link){
-        var element = document.querySelector('meta[name="page_name"]');
-        var content = element && element.getAttribute("content");
+        var page_name = document.querySelector('meta[name="page_name"]');
+        var content = page_name && page_name.getAttribute("content");
 
+        var fileCode = document.querySelector('meta[name="fileCode"]');
+        var content = fileCode && fileCode.getAttribute("content");
+
+        console.log(teamData[content]['name']);
 
         var listener = function(event, data) {
 
         var branchFrame = document.getElementById('branch-banner-iframe');
         var win = branchFrame.contentWindow;
         var doc = branchFrame.contentDocument? branchFrame.contentDocument: branchFrame.contentWindow.document;
-        // var form = doc.getElementById('demoForm');
+
         var description = doc.getElementsByClassName('branch-banner-description')[0];
+        var button = doc.getElementsByClassName('branch-banner-button')[0];
+        button.style.color = "#000000";
+
         var desc = description.innerHTML;
         console.log(desc);
 
-        description.innerHTML = desc.replace("xxxx", content);
+        description.innerHTML = desc.replace("xxxx", teamData[content]['shortName']);
+        description.innerHTML = desc.replace("xxyy", teamData[content]['stadiumName']);
       }
         branch.setBranchViewData({
             data:{
-              '$journeys_title':content
+              '$journeys_title': teamData[content]['name']
             }
         });
 
@@ -39,7 +52,6 @@
         // Listen for all events
         branch.addListener(listener);
     }
-
 	});
 </script>
 <style>
