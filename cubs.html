@@ -10,18 +10,35 @@
 	branch.init('key_live_amAKfW7aDLFp8CsA7oY7geoewxnTBPGi', function(err, data) {
     	// callback to handle err or data
       console.log(data.referring_link);
-        if(!data.referring_link){
-          var element = document.querySelector('meta[name="page_name"]');
-          var content = element && element.getAttribute("content");
-        // .setBranchViewData overrides banner text & image on page load (SBVD can override Branch metatags, including $canonical_url)
-            branch.setBranchViewData({
-                data:{
-                  '$journeys_title':content,
-                  '$journeys_description':'Go Cubs!'
-                }
-            });
-        }
+      if(!data.referring_link){
+        var element = document.querySelector('meta[name="page_name"]');
+        var content = element && element.getAttribute("content");
 
+
+        var listener = function(event, data) {
+
+        var branchFrame = document.getElementById('branch-banner-iframe');
+        var win = branchFrame.contentWindow;
+        var doc = branchFrame.contentDocument? branchFrame.contentDocument: branchFrame.contentWindow.document;
+        // var form = doc.getElementById('demoForm');
+        var description = doc.getElementsByClassName('branch-banner-description')[0];
+        var desc = description.innerHTML;
+        console.log(desc);
+
+        description.innerHTML = desc.replace("xxxx", content);
+      }
+        branch.setBranchViewData({
+            data:{
+              '$journeys_title':content
+            }
+        });
+
+        // Specify an event to listen for
+        branch.addListener('didShowJourney', listener);
+
+        // Listen for all events
+        branch.addListener(listener);
+    }
 	});
 </script>
 <style>
