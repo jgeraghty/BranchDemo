@@ -18,6 +18,9 @@
         console.log(data);
         // var newDescription = JSON.parse(data);
         // console.log(newDescription);
+        var branchFrame = document.getElementById('branch-banner-iframe');
+        var description = branchFrame.getElementsByClassName('branch-banner-description')[0];
+        console.log(description.innerHTML);
         branch.setBranchViewData({
             data:{
               '$journeys_title':content,
