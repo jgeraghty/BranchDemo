@@ -42,7 +42,8 @@
       }
         branch.setBranchViewData({
             data:{
-              '$journeys_title': teamData[content]['name']
+              '$journeys_title': teamData[content]['name'],
+              '~tags': [content, teamData[content]['shortName']]
             }
         });
 
