@@ -22,6 +22,9 @@
         var doc = branchFrame.contentDocument? branchFrame.contentDocument: branchFrame.contentWindow.document;
         // var form = doc.getElementById('demoForm');
         var description = doc.getElementsByClassName('branch-banner-description')[0];
+        var button = doc.getElementsByClassName('branch-banner-button')[0];
+        button.style.color = "#000000";
+
         var desc = description.innerHTML;
         console.log(desc);
 
