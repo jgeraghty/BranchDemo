@@ -23,8 +23,10 @@
         var doc = branchFrame.contentDocument? branchFrame.contentDocument: branchFrame.contentWindow.document;
         // var form = doc.getElementById('demoForm');
         var description = doc.getElementsByClassName('branch-banner-description')[0];
-        console.log(description.innerHTML);
-        description.innerHTML = str.replace("xxxx", content);
+        var desc = description.innerHTML;
+        console.log(desc);
+
+        description.innerHTML = desc.replace("xxxx", content);
       }
         branch.setBranchViewData({
             data:{
