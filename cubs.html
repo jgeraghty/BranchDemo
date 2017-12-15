@@ -29,7 +29,7 @@
         var branchFrame = document.getElementById('branch-banner-iframe');
         var win = branchFrame.contentWindow;
         var doc = branchFrame.contentDocument? branchFrame.contentDocument: branchFrame.contentWindow.document;
-        // var form = doc.getElementById('demoForm');
+
         var description = doc.getElementsByClassName('branch-banner-description')[0];
         var button = doc.getElementsByClassName('branch-banner-button')[0];
         button.style.color = "#000000";
@@ -37,11 +37,12 @@
         var desc = description.innerHTML;
         console.log(desc);
 
-        description.innerHTML = desc.replace("xxxx", content);
+        description.innerHTML = desc.replace("xxxx", teamData[content]['shortName']);
+        description.innerHTML = desc.replace("xxyy", teamData[content]['stadiumName']);
       }
         branch.setBranchViewData({
             data:{
-              '$journeys_title':content
+              '$journeys_title': teamData[content]['name']
             }
         });
 
