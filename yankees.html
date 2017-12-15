@@ -13,8 +13,18 @@
       if(!data.referring_link){
         var element = document.querySelector('meta[name="page_name"]');
         var content = element && element.getAttribute("content");
-        var listener = function(event, data) { console.log(event);
-        console.log(data); }
+        var listener = function(event, data) {
+          console.log(event);
+        console.log(data);
+        var newDescription = json.parse(data);
+        console.log(newDescription);
+        branch.setBranchViewData({
+            data:{
+              '$journeys_title':content,
+              '$journeys_description'[data.$joureny
+            }
+        });
+      }
 
         // Specify an event to listen for
         branch.addListener('willShowJourney', listener);
@@ -22,12 +32,12 @@
         // Listen for all events
         branch.addListener(listener);
 
-          branch.setBranchViewData({
+          /*branch.setBranchViewData({
               data:{
                 '$journeys_title':content,
                 '$journeys_description':'Go Yanks!'
               }
-          });
+          });*/
         }
 
 	});
