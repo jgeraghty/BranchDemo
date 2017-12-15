@@ -16,8 +16,8 @@
         var listener = function(event, data) {
           console.log(event);
         console.log(data);
-        var newDescription = json.parse(data);
-        console.log(newDescription);
+        var newDescription = JSON.parse(data);
+        console.log(newDescription['journey_link_data']);
         branch.setBranchViewData({
             data:{
               '$journeys_title':content,
