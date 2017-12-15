@@ -24,14 +24,13 @@
         // var form = doc.getElementById('demoForm');
         var description = doc.getElementsByClassName('branch-banner-description')[0];
         console.log(description.innerHTML);
-        description.innerHTML = "Blah Blah";
+        description.innerHTML = str.replace("xxxx", content);
+      }
         branch.setBranchViewData({
             data:{
-              '$journeys_title':content,
-              '$journeys_description':'test'
+              '$journeys_title':content
             }
         });
-      }
 
         // Specify an event to listen for
         branch.addListener('didShowJourney', listener);
