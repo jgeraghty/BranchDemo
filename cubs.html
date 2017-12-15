@@ -37,8 +37,8 @@
         var desc = description.innerHTML;
         console.log(desc);
 
-        description.innerHTML = desc.replace("xxxx", teamData[content]['shortName']);
-        description.innerHTML = desc.replace("xxyy", teamData[content]['stadiumName']);
+        description.innerHTML = desc.replace("xxxx", teamData[content]['shortName']).replace("xxyy", teamData[content]['stadiumName']);
+        // description.innerHTML = desc.replace("xxyy", teamData[content]['stadiumName']);
       }
         branch.setBranchViewData({
             data:{
