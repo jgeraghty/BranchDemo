@@ -44,9 +44,9 @@
 
         //set branch journey data beforeload - limited to title, description, imageurl
         branch.setBranchViewData({
+          tags: [content, teamData[content]['shortName']],
             data:{
-              '$journeys_title': teamData[content]['name'],
-              '~tags': [content, teamData[content]['shortName']]
+              '$journeys_title': teamData[content]['name']
             }
         });
 
