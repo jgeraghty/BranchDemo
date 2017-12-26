@@ -40,10 +40,10 @@
           // description.innerHTML = desc.replace("xxyy", teamData[content]['stadiumName']);
         }
         branch.setBranchViewData({
-            data:{
-              '$journeys_title': teamData[content]['name'],
-              '~tags': [content, teamData[content]['shortName']]
-            }
+          tags: [content, teamData[content]['shortName']],
+          data:{
+            '$journeys_title': teamData[content]['name']
+          }
         });
 
         // Specify an event to listen for
