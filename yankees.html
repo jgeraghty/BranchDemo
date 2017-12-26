@@ -27,7 +27,6 @@
         var listener = function(event, data) {
 
         var branchFrame = document.getElementById('branch-banner-iframe');
-        var win = branchFrame.contentWindow;
         var doc = branchFrame.contentDocument? branchFrame.contentDocument: branchFrame.contentWindow.document;
 
         var description = doc.getElementsByClassName('branch-banner-description')[0];
