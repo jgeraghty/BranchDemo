@@ -26,19 +26,19 @@
 
         var listener = function(event, data) {
 
-        var branchFrame = document.getElementById('branch-banner-iframe');
-        var doc = branchFrame.contentDocument? branchFrame.contentDocument: branchFrame.contentWindow.document;
+          var branchFrame = document.getElementById('branch-banner-iframe');
+          var doc = branchFrame.contentDocument? branchFrame.contentDocument: branchFrame.contentWindow.document;
 
-        var description = doc.getElementsByClassName('branch-banner-description')[0];
-        var button = doc.getElementsByClassName('branch-banner-button')[0];
-        button.style.color = "#000000";
+          var description = doc.getElementsByClassName('branch-banner-description')[0];
+          var button = doc.getElementsByClassName('branch-banner-button')[0];
+          button.style.color = "#000000";
 
-        var desc = description.innerHTML;
-        console.log(desc);
+          var desc = description.innerHTML;
+          console.log(desc);
 
-        description.innerHTML = desc.replace("xxxx", teamData[content]['shortName']).replace("xxyy", teamData[content]['stadiumName']);
-        // description.innerHTML = desc.replace("xxyy", teamData[content]['stadiumName']);
-      }
+          description.innerHTML = desc.replace("xxxx", teamData[content]['shortName']).replace("xxyy", teamData[content]['stadiumName']);
+          // description.innerHTML = desc.replace("xxyy", teamData[content]['stadiumName']);
+        }
         branch.setBranchViewData({
             data:{
               '$journeys_title': teamData[content]['name'],
@@ -50,7 +50,7 @@
         branch.addListener('didShowJourney', listener);
 
         // Listen for all events
-        branch.addListener(listener);
+        // branch.addListener(listener);
     }
 	});
 </script>
