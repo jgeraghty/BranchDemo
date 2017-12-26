@@ -25,6 +25,7 @@
         console.log(teamData[content]['name']);
 
         var listener = function(event, data) {
+          console.time('start of listener');
 
           var branchFrame = document.getElementById('branch-banner-iframe');
           var doc = branchFrame.contentDocument? branchFrame.contentDocument: branchFrame.contentWindow.document;
@@ -38,6 +39,7 @@
 
           description.innerHTML = desc.replace("xxxx", teamData[content]['shortName']).replace("xxyy", teamData[content]['stadiumName']);
           // description.innerHTML = desc.replace("xxyy", teamData[content]['stadiumName']);
+          console.timeEnd('end of listener');
         }
         branch.setBranchViewData({
           tags: [content, teamData[content]['shortName']],
