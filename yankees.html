@@ -19,6 +19,7 @@
   }
 	branch.init('key_live_amAKfW7aDLFp8CsA7oY7geoewxnTBPGi', function(err, data) {
     	// callback to handle err or data
+      branch.setIdentity("burhanrules");
       console.log(data);
       if(!data.referring_link){
         var page_name = document.querySelector('meta[name="page_name"]');
@@ -50,9 +51,7 @@
           tags: [content, teamData[content]['shortName']],
           data:{
             '$journeys_title': teamData[content]['name']
-          },
-          $fallback_url: 'http://google.com',
-          $ios_fallback_url: 'http://google.com'
+          }
         });
 
         // Specify an event to listen for
