@@ -41,7 +41,7 @@
           //replacing the inner description
           description.innerHTML = desc.replace("xxxx", teamData[content]['shortName']).replace("xxyy", teamData[content]['stadiumName']);
         }
-        var trackBannerClose = function() {
+        var listenerClose = function() {
           console.log("dismissing!");
           window.branch.track('journeyClose');
         }
