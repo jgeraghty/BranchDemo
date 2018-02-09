@@ -41,6 +41,10 @@
           //replacing the inner description
           description.innerHTML = desc.replace("xxxx", teamData[content]['shortName']).replace("xxyy", teamData[content]['stadiumName']);
         }
+        var trackBannerClose = function() {
+          console.log("dismissing!");
+          window.branch.track('journeyClose');
+        }
 
         //set branch journey data beforeload - limited to title, description, imageurl
         branch.setBranchViewData({
@@ -52,6 +56,7 @@
 
         // Specify an event to listen for
         branch.addListener('didShowJourney', listener);
+        branch.addListener('didClickJourneyClose', listenerClose);
 
         // Listen for all events
         // branch.addListener(listener);
