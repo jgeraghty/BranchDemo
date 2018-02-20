@@ -99,7 +99,7 @@
     var listenerMargin = function(event, data) {
 
       var precontent = document.getElementById("pre-content-container");
-      var tMarginBody = document.getElementsByTagName("body")[0].marginTop;
+      var tMarginBody = document.getElementsByTagName("html")[0].marginTop;
       console.log("Margin top:::" + tMarginBody);
       precontent.style.paddingTop = tMarginBody;
     }
