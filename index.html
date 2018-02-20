@@ -38,6 +38,24 @@
   <div id="pre-content-container"></div>
   <h1>Hello! Blah</h1>
   <h1>Hello!</h1>
+  <div id="testURI"></div>
+  <script>
+    function getParameterByName(name, url) {
+      if (!url) url = window.location.href;
+      name = name.replace(/[\[\]]/g, "\\$&");
+      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+          results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+
+      var testURI = document.getElementById("testURI");
+      var URI = getParameterByName('uri');
+      testURI.innerHTML = '<a href="' + URI + '://"></a>';
+
+  </script>
   <h1>Hello!</h1>
   <h1>Hello!</h1>
   <h1>Hello!</h1>
@@ -47,6 +65,7 @@
   <h1>Hello!</h1>
   <h1>Hello!</h1>
   <h1>Hello! chicken</h1>
+
   <h1>Hello!</h1>
   <h1>Hello!</h1>
   <h1>Hello!</h1>
