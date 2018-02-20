@@ -99,10 +99,9 @@
     var listener2 = function(event, data) {
 
       var precontent = document.getElementById("pre-content-container");
-      var tMargin3 = document.getElementsByTagName("body")[0].marginTop;
-      console.log("Margin top:::" + tMargin3);
-      var initialMargin3 = parseInt(tMargin3, 10);
-      precontent.style.paddingTop = initialMargin3 +"px";
+      var tMarginBody = document.getElementsByTagName("body")[0].marginTop;
+      console.log("Margin top:::" + tMarginBody);
+      precontent.style.paddingTop = tMarginBody;
 
       if(data["journey_link_data"]["data"]["inline"] == "true"){
         var nav = document.getElementsByClassName("branch-journeys-top")[0].parentNode;
