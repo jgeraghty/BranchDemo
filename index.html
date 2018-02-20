@@ -96,6 +96,13 @@
   <h1>Hello!</h1>
   <h1>Hello!</h1>
   <script>
+    var listenerMargin = function(event, data) {
+
+      var precontent = document.getElementById("pre-content-container");
+      var tMarginBody = document.getElementsByTagName("body")[0].marginTop;
+      console.log("Margin top:::" + tMarginBody);
+      precontent.style.paddingTop = tMarginBody;
+    }
     var listener2 = function(event, data) {
 
       var precontent = document.getElementById("pre-content-container");
@@ -130,7 +137,7 @@
       }
     }
     // Listen for journey events
-    branch.addListener('didShowJourney', listener2);
+    branch.addListener('didShowJourney', listenerMargin);
 
 
     var closeListener = function(event, data) {
