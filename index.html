@@ -53,9 +53,8 @@
 
       var testURI = document.getElementById("testURI");
       var URI = getParameterByName('uri');
-      var testURI2 = document.getElementById("testURI");
       var URI2 = getParameterByName('uriPlus');
-      testURI.innerHTML = '<a href="' + URI + '://">Click ME Now!!!</a>'+ '<a href="' + URI2 + '://">Click ME Now!!! Long uri</a>';
+      testURI.innerHTML = '<a href="' + URI + '://">Click ME Now!!!</a>' + '<a href="' + URI + '://' + URI2 '">Click ME Now!!! Long uri</a>';
 
   </script>
   <h1>Hello!</h1>
