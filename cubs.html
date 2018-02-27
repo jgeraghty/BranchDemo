@@ -32,14 +32,14 @@
           var doc = branchFrame.contentDocument? branchFrame.contentDocument: branchFrame.contentWindow.document;
 
           var description = doc.getElementsByClassName('branch-banner-description')[0];
-          var button = doc.getElementsByClassName('branch-banner-button')[0];
-          button.style.color = "#000000";
+          // var button = doc.getElementsByClassName('branch-banner-button')[0];
+          // button.style.color = "#000000";
 
           var desc = description.innerHTML;
           console.log(desc);
 
           //replacing the inner description
-          description.innerHTML = desc.replace("xxxx", teamData[content]['shortName']).replace("xxyy", teamData[content]['stadiumName']);
+          // description.innerHTML = desc.replace("xxxx", teamData[content]['shortName']).replace("xxyy", teamData[content]['stadiumName']);
         }
         var listenerClose = function() {
           console.log("dismissing!");
@@ -50,7 +50,9 @@
         branch.setBranchViewData({
           tags: [content, teamData[content]['shortName']],
             data:{
-              '$journeys_title': teamData[content]['name']
+              'team_name': teamData[content]['name'],
+              'stadium_name': teamData[content]['stadiumName'],
+              'team_color': '#002F6C'
             }
         });
 
