@@ -15,7 +15,7 @@
     	// callback to handle err or data
       console.log(data);
       var data1 = document.querySelector('meta[name="team_name"]');
-      var team_name = page_name ? team_name.getAttribute("content") : "MLB Base";
+      var team_name = data1 ? data1.getAttribute("content") : "MLB Base";
       var stadium_name = document.querySelector('meta[name="stadium_name"]').getAttribute("content");
       var team_color = document.querySelector('meta[name="team_color"]').getAttribute("content");
       var team_color_2 = document.querySelector('meta[name="team_color_2"]').getAttribute("content");
