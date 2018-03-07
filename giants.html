@@ -15,13 +15,21 @@
 	branch.init('key_live_amAKfW7aDLFp8CsA7oY7geoewxnTBPGi', function(err, data) {
     	// callback to handle err or data
       console.log(data);
-      var team_name = document.querySelector('meta[name="team_name"]').getAttribute("content");
-      var stadium_name = document.querySelector('meta[name="stadium_name"]').getAttribute("content");
-      var team_color = document.querySelector('meta[name="team_color"]').getAttribute("content");
-      var team_color_2 = document.querySelector('meta[name="team_color_2"]').getAttribute("content");
+
+      var data1 = document.querySelector('meta[name="team_name"]');
+      var team_name = data1 ? data1.getAttribute("content") : "MLB Base";
+
+      var data2 = document.querySelector('meta[name="stadium_name"]');
+      var stadium_name = data2 ? data2.getAttribute("content") : "MLB Stadium";
+
+      var data3 = document.querySelector('meta[name="team_color"]');
+      var team_color = data3 ? data3.getAttribute("content") : "#223151";
+
+      var data4 = document.querySelector('meta[name="team_color_2"]');
+      var team_color_2 = data4 ? data4.getAttribute("content") : "#FFFFFF";
 
       console.log(team_name);
-      
+
       branch.setBranchViewData({
           data:{
             'team_name': team_name,
