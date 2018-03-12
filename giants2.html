@@ -16,7 +16,7 @@
       console.log(data);
 
       var data1 = document.querySelector('meta[name="team_name"]');
-      var team_name = data1 ? data1.getAttribute("content") : "";
+      var team_name = data1 ? data1.getAttribute("content") : null;
 
       var data6 = document.querySelector('meta[name="team_name_short"]');
       var team_name_short = data6 ? data6.getAttribute("content") : "";
@@ -31,7 +31,7 @@
       var team_color_2 = data4 ? data4.getAttribute("content") : "#FFFFFF";
 
       var data5 = document.querySelector('meta[name="fileCode"]');
-      var fileCode = data4 ? data4.getAttribute("content") : "MLB";
+      var fileCode = data5 ? data5.getAttribute("content") : "MLB";
 
       console.log(team_name);
 
