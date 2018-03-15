@@ -57,6 +57,9 @@
 	});
 </script>
 <style>
+  body{
+    display: flex;
+  }
   .fixedNav {
     position: fixed;
     top: 0;
@@ -68,6 +71,7 @@
   .content{
     display: flex;
     flex-direction: column;
+    flex: 1;
   }
   .content > div {
     flex: 1;
@@ -103,7 +107,7 @@
       var testURI = document.getElementById("siteBox");
       var SITE = getParameterByName('site');
       var DECODED = decodeURIComponent(SITE);
-      testURI.innerHTML = '<iframe src="' + DECODED + '"></iframe>';
+      testURI.appendChild = '<iframe src="' + DECODED + '"></iframe>';
 
     </script>
 </body>
