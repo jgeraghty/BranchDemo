@@ -89,7 +89,9 @@
 </head>
 <body>
   <section class="content">
-    <div id="siteBox">Test</div>
+    <div id="siteBox">
+      <div id="frameSpot"></div>
+    </div>
   </section>
 
   <script>
@@ -103,11 +105,21 @@
       return decodeURIComponent(results[2].replace(/\+/g, " "));
     }
 
+    var testURI = document.getElementById("siteBox");
+    var SITE = getParameterByName('site');
+    var DECODED = decodeURIComponent(SITE);
+    // testURI.innerHTML = '<iframe src="' + DECODED + '"></iframe>';
 
-      var testURI = document.getElementById("siteBox");
-      var SITE = getParameterByName('site');
-      var DECODED = decodeURIComponent(SITE);
-      testURI.appendChild = '<iframe src="' + DECODED + '"></iframe>';
+    var ifrm = document.createElement('iframe');
+    ifrm.setAttribute('id', 'ifrm');
+
+    // to place before another page element
+    var spot = document.getElementById('frameSpot');
+    spot.parentNode.insertBefore(ifrm, spot);
+
+    // assign url
+    ifrm.setAttribute('src', DECODED);
+
 
     </script>
 </body>
