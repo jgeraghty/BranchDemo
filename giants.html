@@ -2,11 +2,12 @@
 <head>
   <meta name=viewport content="width=device-width, initial-scale=1, user-scalable=yes">
   <meta name="fileCode" content="sfg" />
-  <meta name="teamName" content="San Francisco Giants" />
-  <meta name="teamNameShort" content="Giants" />
-  <meta name="stadium" content="ATT Park" />
-  <meta name="teamColor" content="#FA4616" />
-  <meta name="pageSection" content="ballpark">
+  <meta name="team_name" content="San Francisco Giants" />
+  <meta name="team_name_short" content="Giants" />
+  <meta name="stadium_name" content="ATT Park" />
+  <meta name="team_color" content="#FA4616" />
+  <meta name="team_color_2" content="#27251F" />
+  <meta name="sectionId" content="ballpark">
 
   <script type="text/javascript">
 
@@ -16,29 +17,28 @@
     	// callback to handle err or data
       console.log(data);
 
-      var data1 = document.querySelector('meta[name="teamName"]');
+      var data1 = document.querySelector('meta[name="team_name"]');
       var team_name = data1 ? data1.getAttribute("content") : null;
-            console.log(team_name);
 
-      var data6 = document.querySelector('meta[name="teamNameShort"]');
+      var data6 = document.querySelector('meta[name="team_name_short"]');
       var team_name_short = data6 ? data6.getAttribute("content") : null;
-            console.log(team_name_short);
 
-      var data2 = document.querySelector('meta[name="stadium"]');
+      var data2 = document.querySelector('meta[name="stadium_name"]');
       var stadium_name = data2 ? data2.getAttribute("content") : null;
-            console.log(stadium_name);
 
-      var data3 = document.querySelector('meta[name="teamColor"]');
+      var data3 = document.querySelector('meta[name="team_color"]');
       var team_color = data3 ? data3.getAttribute("content") : null;
-            console.log(team_color);
+
+      var data4 = document.querySelector('meta[name="team_color_2"]');
+      var team_color_2 = data4 ? data4.getAttribute("content") : null;
 
       var data5 = document.querySelector('meta[name="fileCode"]');
       var fileCode = data5 ? data5.getAttribute("content") : "MLB";
-            console.log(fileCode);
 
-      var data7 = document.querySelector('meta[name="pageSection"]');
+      var data7 = document.querySelector('meta[name="sectionId"]');
       var sectionId = data7 ? data4.getAttribute("content") : null;
-            console.log(sectionId);
+
+      console.log(team_name);
 
       branch.setBranchViewData({
         tags: [fileCode, sectionId],
@@ -47,7 +47,7 @@
             'team_name_short': team_name_short,
             'stadium_name': stadium_name,
             'team_color': team_color,
-            'team_color_2': null
+            'team_color_2': team_color_2
           }
       });
 
