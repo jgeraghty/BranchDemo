@@ -6,7 +6,6 @@
   <meta name="teamNameShort" content="Giants" />
   <meta name="stadium" content="ATT Park" />
   <meta name="teamColor" content="#FA4616" />
-  <meta name="team_color_2" content="#27251F" />
   <meta name="pageSection" content="ballpark">
 
   <script type="text/javascript">
@@ -29,9 +28,6 @@
       var data3 = document.querySelector('meta[name="teamColor"]');
       var team_color = data3 ? data3.getAttribute("content") : null;
 
-      var data4 = document.querySelector('meta[name="team_color_2"]');
-      var team_color_2 = data4 ? data4.getAttribute("content") : null;
-
       var data5 = document.querySelector('meta[name="fileCode"]');
       var fileCode = data5 ? data5.getAttribute("content") : "MLB";
 
@@ -46,8 +42,7 @@
             'team_name': team_name,
             'team_name_short': team_name_short,
             'stadium_name': stadium_name,
-            'team_color': team_color,
-            'team_color_2': team_color_2
+            'team_color': team_color
           }
       });
 
