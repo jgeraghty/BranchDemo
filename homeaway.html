@@ -19,7 +19,7 @@
     branch.setBranchViewData({
       tags: [content, teamData[content]['shortName']],
         data:{
-          'address': address
+          'address': content
         }
     });
 
@@ -101,19 +101,17 @@
   <h1>Hello!</h1>
   <script>
 
-          //creating listener for on journey load
-          var listener = function(event, data) {
-            console.log("willShowJourney");
-            console.log(event, data);
+    //creating listener for on journey load
+    var listener = function(event, data) {
+      console.log("willShowJourney");
+      console.log(event, data);
+    }
 
-          //replacing the inner description
-          // description.innerHTML = desc.replace("xxxx", teamData[content]['shortName']).replace("xxyy", teamData[content]['stadiumName']);
-        }
+    var listenerClose = function(event, data) {
+      console.log("didClickJourneyClose");
+      console.log(event, data);
+    }
 
-        var listenerClose = function(event, data) {
-          console.log("didClickJourneyClose");
-          console.log(event, data);
-        }
     // Specify an event to listen for
     branch.addListener('willShowJourney', listener);
     branch.addListener('didShowJourney', listener);
