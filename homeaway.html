@@ -9,27 +9,11 @@
 	(function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent".split(" "), 0);
 
 	branch.init('key_live_iloxIxoXURs2xAsdv8xCraifCBfYwHFn', function(err, data) {
-    	// callback to handle err or data
-      console.log(data);
+  	// callback to handle err or data
+    console.log(data);
 
-
-      var address = document.querySelector('meta[name="address"]');
-      var content = address && address.getAttribute("content");
-
-
-      //creating listener for on journey load
-      var listener = function(event, data) {
-        console.log("willLoadJourney");
-        console.log(data);
-
-      //replacing the inner description
-      // description.innerHTML = desc.replace("xxxx", teamData[content]['shortName']).replace("xxyy", teamData[content]['stadiumName']);
-    }
-
-    var listenerClose = function(event, data) {
-      console.log("didClickJourneyClose");
-      console.log(data);
-    }
+    var address = document.querySelector('meta[name="address"]');
+    var content = address && address.getAttribute("content");
 
     //set branch journey data beforeload - limited to title, description, imageurl
     branch.setBranchViewData({
@@ -39,10 +23,6 @@
         }
     });
 
-    // Specify an event to listen for
-    branch.addListener('willShowJourney', listener);
-    branch.addListener('didShowJourney', listener);
-    branch.addListener('didClickJourneyClose', listenerClose);
 
 	});
 </script>
@@ -119,5 +99,25 @@
   <h1>Hello!</h1>
   <h1>Hello!</h1>
   <h1>Hello!</h1>
+  <script>
+
+          //creating listener for on journey load
+          var listener = function(event, data) {
+            console.log("willShowJourney");
+            console.log(event, data);
+
+          //replacing the inner description
+          // description.innerHTML = desc.replace("xxxx", teamData[content]['shortName']).replace("xxyy", teamData[content]['stadiumName']);
+        }
+
+        var listenerClose = function(event, data) {
+          console.log("didClickJourneyClose");
+          console.log(event, data);
+        }
+    // Specify an event to listen for
+    branch.addListener('willShowJourney', listener);
+    branch.addListener('didShowJourney', listener);
+    branch.addListener('didClickJourneyClose', listenerClose);
+  </script>
 </body>
 </html>
