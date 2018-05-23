@@ -15,12 +15,12 @@
     var address = document.querySelector('meta[name="address"]');
     var content = address && address.getAttribute("content");
 
+    console.log(content);
     //set branch journey data beforeload - limited to title, description, imageurl
     branch.setBranchViewData({
-      tags: [content, teamData[content]['shortName']],
-        data:{
-          'address': content
-        }
+      data:{
+        'address': content
+      }
     });
 
 
