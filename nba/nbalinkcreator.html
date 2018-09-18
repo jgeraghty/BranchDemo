@@ -202,6 +202,10 @@
         var hashtags = document.getElementById('hashtags').value;
         var player = document.getElementById('playerName').value;
 
+        if (fallbackUS == null & tricodeMap[teamName] != "nba"){
+          fallbackUS = "https://www.nba.com/" + teamName + "/leaguepass/pricing";
+        }
+
         var internationalLinkData = {
           tags: [],
           channel: channel,
