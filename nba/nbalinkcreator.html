@@ -206,6 +206,10 @@
           fallbackUS = "https://www.nba.com/" + teamName.toLowerCase() + "/leaguepass/pricing";
         }
 
+        if ( (fallbackInternational == null || fallbackInternational == "") & tricodeMap[teamName] != "nba"){
+          fallbackInternational = "http://www.nba.com/leaguepass?aff=" + teamName.toLowerCase() + "&cid=Leaguepass:teams:site:" + teamName.toLowerCase();
+        }
+
         var internationalLinkData = {
           tags: [],
           channel: channel,
