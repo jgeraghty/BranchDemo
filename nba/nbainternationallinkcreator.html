@@ -262,7 +262,6 @@
                 type: 2,
                 data: {
                 "$fallback_url_us": domLink,
-                "$fallback_url":
                 "$one_time_use": false,
                 "deeplink": deeplinkValue,
                 "tricode": tricodeMap[teamName],
@@ -295,7 +294,7 @@
             }
 
             if (fallbackInternational != null && fallbackInternational != "") {
-              internationalLinkData.data["$fallback_url_us"] = domLink;
+              internationalLinkData.data["$fallback_url"] = fallbackInternational;
               internationalLinkData.data["$canonical_url"] = fallbackInternational;
 
               branch.link(internationalLinkData, function(err, internationalLink) {
