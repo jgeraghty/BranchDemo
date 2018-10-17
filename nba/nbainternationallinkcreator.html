@@ -239,7 +239,7 @@
           }
         }
 
-        if (fallbackDom !== null && fallbackDom != "") {
+        if (fallbackUS !== null && fallbackUS != "") {
           domLinkData.data["$fallback_url"] = fallbackUS;
           domLinkData.data["$canonical_url"] = fallbackUS;
         } else {
@@ -261,7 +261,8 @@
                 campaign: teamName,
                 type: 2,
                 data: {
-                "$fallback_url": domLink,
+                "$fallback_url_us": domLink,
+                "$fallback_url":
                 "$one_time_use": false,
                 "deeplink": deeplinkValue,
                 "tricode": tricodeMap[teamName],
@@ -337,7 +338,7 @@
 
               branch.link(internationalBackgroundLinkData, function(err, internationalBackgroundLink) {
                 if (err == null) {
-                  internationalLinkData.data["$fallback_url_us"] = internationalBackgroundLink;
+                  internationalLinkData.data["$fallback_url"] = internationalBackgroundLink;
                   internationalLinkData.data["$canonical_url"] = defaultCanonical;
                 } else {
                   console.log(err, internationalBackgroundLink);
