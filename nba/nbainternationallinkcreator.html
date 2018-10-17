@@ -207,7 +207,7 @@
         }
 
         if ( (fallbackInternational == null || fallbackInternational == "") & tricodeMap[teamName] != "nba"){
-          fallbackDom = "http://www.nba.com/leaguepass?aff=" + teamName.toLowerCase() + "&cid=Leaguepass:teams:site:" + teamName.toLowerCase();
+          fallbackInternationl = "http://www.nba.com/leaguepass?aff=" + teamName.toLowerCase() + "&cid=Leaguepass:teams:site:" + teamName.toLowerCase();
         }
 
         var domLinkData = {
@@ -240,8 +240,8 @@
         }
 
         if (fallbackDom !== null && fallbackDom != "") {
-          domLinkData.data["$fallback_url"] = fallbackDom;
-          domLinkData.data["$canonical_url"] = fallbackDom;
+          domLinkData.data["$fallback_url"] = fallbackUS;
+          domLinkData.data["$canonical_url"] = fallbackUS;
         } else {
           domLinkData.data["$canonical_url"] = defaultCanonical;
         }
@@ -294,7 +294,7 @@
             }
 
             if (fallbackInternational != null && fallbackInternational != "") {
-              internationalLinkData.data["$fallback_url_us"] = fallbackInternational;
+              internationalLinkData.data["$fallback_url_us"] = domLink;
               internationalLinkData.data["$canonical_url"] = fallbackInternational;
 
               branch.link(internationalLinkData, function(err, internationalLink) {
