@@ -187,7 +187,7 @@
     <section class="container toggle" id="description_oneoff">
         <p><ol>
             <li>"Original URL" --> Add a web url to convert into Branch (this becomes the default web redirect for desktop users, and mobile users without the app)</li>
-            <li>"Add Query Parameters" --> Add key-value pairs to the link (i.e., $desktop_url=https://www.renttherunway.com, deeplink=linktofico, etc)</li>
+            <li>"Add Query Parameters" --> Add key-value pairs to the link (i.e., $desktop_url=https://www.renttherunway.com/shop/new_arrivals/products?sort=newes, $deeplink_path=rtr://tab/shop/filteredGrid?title=New+Arrivals&anmp;sort=newest&amp;curations=new_arrivals, etc)</li>
             <li>"Add Analytics Tags" --> Attribute app sessions to email (you can set one 'campaign' value, and multiple 'tags' values)</li>
             <li>"Create Email Link" --> Create a Branch link with the parameters you set</li>
         </ol></p>
@@ -227,7 +227,7 @@
         <table id="query_params" class="toggle">
             <tr id="row-1">
                 <td><label style="margin-right: 10px">Query Param 1</label></td>
-                <td><input class="form-control" style="width:500px" id="query-key-1" type="text" placeholder="i.e., deeplink, $desktop_url, $ios_url, $android_url"/></td>
+                <td><input class="form-control" style="width:500px" id="query-key-1" type="text" placeholder="i.e., $deeplink_path, $desktop_url, $ios_url, $android_url"/></td>
                 <td><input class="form-control" style="width:500px" id="query-value-1" type="text" placeholder="i.e., https://www.renttherunway.com, linktofico"/></td>
             </tr>
         </table>
