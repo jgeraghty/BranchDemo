@@ -22,22 +22,20 @@
       var listener = function(event, data) {
 
       }
-      branch.deepview();
+      branch.deepview(
+        {
+          'channel': 'mobile_web',
+          'feature': 'deepview',
+          data : {
+            '$deeplink_path': 'page/1234',
+            'user_profile': '7890',
+            'page_id': '1234',
+            'custom_data': 1234
+          }
+        });
       //OPTIONAL -- Specify an event to listen for
       branch.addListener('willShowJourney', listener);
 	});
-  branch.deepview(
-    {
-      'channel': 'mobile_web',
-      'feature': 'deepview',
-      data : {
-        '$deeplink_path': 'page/1234',
-        'user_profile': '7890',
-        'page_id': '1234',
-        'custom_data': 1234
-      }
-    }
-);
 </script>
 <style>
   .fixedNav {
