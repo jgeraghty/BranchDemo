@@ -22,6 +22,7 @@
       var listener = function(event, data) {
 
       }
+      console.log(data['$desktop_url']);
       branch.deepview(
         {
           'channel': 'mobile_web',
@@ -30,7 +31,8 @@
             '$desktop_url': data['$desktop_url'],
             'user_profile': '7890',
             'page_id': '1234',
-            'custom_data': 1234
+            'custom_data': 1234,
+            '~campaign' : 'JoeJoe'
           }
         });
       //OPTIONAL -- Specify an event to listen for
