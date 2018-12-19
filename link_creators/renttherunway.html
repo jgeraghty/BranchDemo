@@ -226,9 +226,24 @@
         <!-- Deep linking parameters table -->
         <table id="query_params" class="toggle">
             <tr id="row-1">
-                <td><label style="margin-right: 10px">Query Param 1</label></td>
-                <td><input class="form-control" style="width:500px" id="query-key-1" type="text" placeholder="i.e., $deeplink_path, $desktop_url, $ios_url, $android_url"/></td>
-                <td><input class="form-control" style="width:500px" id="query-value-1" type="text" placeholder="i.e., https://www.renttherunway.com, linktofico"/></td>
+                <td><label style="margin-right: 10px">Add a deeplink key</label></td>
+                <td><input class="form-control" style="width:300px" id="query-key-1" type="text" value="$deeplink_path"/></td>
+                <td><input class="form-control" style="width:450px" id="query-value-1" type="text" placeholder="i.e., sku?id=5254a8c6e4b0c3eeb34ecd41"/></td>
+            </tr>
+            <tr id="row-2">
+                <td><label style="margin-right: 10px">What is your iOS fallback URL?</label></td>
+                <td><input class="form-control" style="width:300px" id="query-key-2" type="text" value="$ios_url"/></td>
+                <td><input class="form-control" style="width:450px" id="query-value-2" type="text" placeholder="https://www.renttherunway.com/"/></td>
+            </tr>
+            <tr id="row-3">
+                <td><label style="margin-right: 10px">What is your Android fallback URL?</label></td>
+                <td><input class="form-control" style="width:300px" id="query-key-3" type="text" value="$android_url"/></td>
+                <td><input class="form-control" style="width:450px" id="query-value-3" type="text" placeholder="https://www.renttherunway.com/"/></td>
+            </tr>
+            <tr id="row-4">
+                <td><label style="margin-right: 10px">What is your desktop fallback URL?</label></td>
+                <td><input class="form-control" style="width:300px" id="query-key-4" type="text" value="$desktop_url"/></td>
+                <td><input class="form-control" style="width:450px" id="query-value-4" type="text" placeholder="https://www.renttherunway.com/"/></td>
             </tr>
         </table>
 
