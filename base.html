@@ -59,7 +59,22 @@
   <h1>Hello!</h1>
   <h1>Hello!</h1>
   <h1>Hello!</h1>
-  <script> branch.closeJourney();</script>
+  <script>
+
+    function closeJourney() {
+
+      branch.closeJourney();
+    }
+
+      function closeJourney2() {
+
+        branch.closeJourney(function(err, data) {
+          console.log(err, data); 
+        });
+      }
+    </script>
+    <input id="clickMe" type="button" value="clickme" onclick="closeJourney();" />
+    <input id="clickMe" type="button" value="clickme222" onclick="closeJourney2();" />
   <h1>Hello! chicken</h1>
   <h1>Hello!</h1>
   <h1>Hello!</h1>
