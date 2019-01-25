@@ -15,6 +15,7 @@
       //OPTIONAL -- allows you to set additional elements to be utilized in the Journey that loads
       branch.setBranchViewData({
           data:{
+            ~campaign:"override me!"
           }
       });
 
@@ -69,7 +70,7 @@
       function closeJourney2() {
 
         branch.closeJourney(function(err, data) {
-          console.log(err, data); 
+          console.log(err, data);
         });
       }
     </script>
