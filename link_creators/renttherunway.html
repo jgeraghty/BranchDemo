@@ -35,6 +35,7 @@
             //var ESPProviderCode = window.document.getElementById("ESPProviderCode").value;
             var desktop_url = false;
             var original_url = window.document.getElementById("originalUrl").value;
+            var fallback_url = window.document.getElementById("fallbackUrl").value;
 
             if (!original_url) {
                 alert("Please enter a destination URL.");
@@ -53,7 +54,7 @@
                 var firstKey = table1.rows[0].cells[1].children[0].value
                 var firstValue = table1.rows[0].cells[2].children[0].value
                 if (key && value) {
-                    params += (key + '=' + encodeURIComponent(value) + '&');
+                    params += (encodeURIComponent(key) + '=' + encodeURIComponent(value) + '&');
                 }
             }
 
@@ -89,9 +90,9 @@
             }
             if (desktop_url) {
                 if (params == '') {
-                    output = get3PLink(original_url);
+                    output = get3PLink(original_url, fallback_url);
                 } else {
-                    output = get3PLink(original_url) + '&' + params.slice(0, params.length - 1);
+                    output = get3PLink(original_url, fallback_url) + '&' + params.slice(0, params.length - 1);
                 }
             }
 
@@ -122,11 +123,15 @@
             }
 
         }
-
-
         function get3PLink(original_url) {
-            var branch_url = 'https://' + 'rtr.app.link' + '/3p?' + encodeURIComponent('$3p') + '=' + 'e_st' + '&' + encodeURIComponent('$original_url') + '=' + encodeURIComponent(original_url);
+          return get3PLink(original_url,"");
+        }
 
+        function get3PLink(original_url, fallback_url) {
+            var branch_url = 'https://' + 'rtr.app.link' + '/3p?' + encodeURIComponent('$3p') + '=' + 'e_st' + '&' + encodeURIComponent('$original_url') + '=' + encodeURIComponent(original_url);
+            if(fallback_url){
+              branch_url+= encodeURIComponent('$fallback_url') + '=' + encodeURIComponent(fallback_url);
+            }
             return branch_url;
         }
 
@@ -213,6 +218,10 @@
                 <tr class="toggle">
                     <td><label style="margin-right: 10px">Enter a web URL</label></td>
                     <td><input class="form-control" style="width:500px" id="originalUrl" type="text" placeholder="i.e., https://m.renttherunway.com/shop/designers/badgley_mischka/fifth_avenue_showstopper_dress"/></td>
+                </tr>
+                <tr class="toggle">
+                    <td><label style="margin-right: 10px">Enter a fallback URL</label></td>
+                    <td><input class="form-control" style="width:500px" id="fallbackUrl" type="text" placeholder="not required -- i.e., https://m.renttherunway.com/shop/designers/badgley_mischka/fifth_avenue_showstopper_dress"/></td>
                 </tr>
                 <tr class="toggle" style="display:none;">
                     <td><label style="margin-right: 10px">File Upload</label></td>
