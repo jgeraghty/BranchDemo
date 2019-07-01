@@ -8,32 +8,7 @@
 
 	branch.init('key_live_amAKfW7aDLFp8CsA7oY7geoewxnTBPGi', function(err, data) {
     	// callback to handle error data
-      function sendSMS(form) {
-        if(window.location.hostname == "https://jgeraghty.github.io/"){
-          alert("Matches!!");
-        }
-        alert(window.location.hostname);
-          var phone = form.phone.value;
-          var linkData = {
-              tags: [],
-              channel: 'Website',
-              feature: 'TextMeTheApp',
-              data: {
-                  'foo': 'bar'
-              }
-          };
-          var options = {};
-          var callback = function(err, result) {
-              if (err) {
-                  alert("Sorry, something went wrong.");
-              }
-              else {
-                  alert("SMS sent!");
-              }
-          };
-          branch.sendSMS(phone, linkData, options, callback);
-          form.phone.value = "";
-        }
+
       //OPTIONAL -- Shows the response from Branch
       console.log(data);
 
@@ -52,6 +27,32 @@
       //OPTIONAL -- Specify an event to listen for
       branch.addListener('willShowJourney', listener);
 	});
+  function sendSMS(form) {
+    if(window.location.hostname == "https://jgeraghty.github.io/"){
+      alert("Matches!!");
+    }
+    alert(window.location.hostname);
+      var phone = form.phone.value;
+      var linkData = {
+          tags: [],
+          channel: 'Website',
+          feature: 'TextMeTheApp',
+          data: {
+              'foo': 'bar'
+          }
+      };
+      var options = {};
+      var callback = function(err, result) {
+          if (err) {
+              alert("Sorry, something went wrong.");
+          }
+          else {
+              alert("SMS sent!");
+          }
+      };
+      branch.sendSMS(phone, linkData, options, callback);
+      form.phone.value = "";
+    }
 </script>
 <style>
   .fixedNav {
