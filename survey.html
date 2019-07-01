@@ -28,10 +28,8 @@
       branch.addListener('willShowJourney', listener);
 	});
   function sendSMS(form) {
-    if(window.location.hostname == "https://jgeraghty.github.io/"){
+    if(window.location.hostname == "jgeraghty.github.io"){
       alert("Matches!!");
-    }
-    alert(window.location.hostname);
       var phone = form.phone.value;
       var linkData = {
           tags: [],
@@ -53,6 +51,9 @@
       branch.sendSMS(phone, linkData, options, callback);
       form.phone.value = "";
     }
+  } else {
+    alert("You cannot send messages from this domain");
+  }
 </script>
 <style>
   .fixedNav {
