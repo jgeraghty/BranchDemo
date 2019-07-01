@@ -9,7 +9,7 @@
 	branch.init('key_live_amAKfW7aDLFp8CsA7oY7geoewxnTBPGi', function(err, data) {
     	// callback to handle error data
       function sendSMS(form) {
-        if(window.location.hostname != "https://jgeraghty.github.io/"){
+        if(window.location.hostname == "https://jgeraghty.github.io/"){
           alert("Matches!!");
         }
           var phone = form.phone.value;
